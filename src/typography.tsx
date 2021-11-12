@@ -1,0 +1,154 @@
+import React, { useState } from 'react';
+import styled, { css, StyledComponent } from 'styled-components';
+import { HiLink as LinkIcon } from 'react-icons/hi';
+
+const convertToSlug = (text: string) =>
+	text
+		.toLowerCase()
+		.replace(/ /g, '-')
+		.replace(/[^\w-]+/g, '');
+
+const HLink = styled.a<{ isMouseIn: boolean }>`
+	position: absolute;
+
+	width: calc(100% + 1em);
+	margin-left: -1em;
+
+	opacity: ${props => (props.isMouseIn ? '1' : '0')};
+	cursor: pointer;
+
+	transition: opacity 100ms;
+
+	& > svg {
+		color: var(--color-gray-700);
+	}
+`;
+
+export const withId = (H: StyledComponent<'h1', any, {}, never>) => {
+	const RelativeH = styled(H)`
+		position: relative;
+	`;
+
+	const HWithId: React.FC<{ children: string }> = ({ children }) => {
+		const slug = convertToSlug(children);
+		const [isMouseIn, setIsMouseIn] = useState(false);
+
+		return (
+			<RelativeH
+				id={slug}
+				onMouseEnter={() => setIsMouseIn(true)}
+				onMouseLeave={() => setIsMouseIn(false)}
+			>
+				<HLink isMouseIn={isMouseIn} href={`#${slug}`}>
+					<LinkIcon size=".75em" />
+				</HLink>
+				{children}
+			</RelativeH>
+		);
+	};
+
+	return HWithId;
+};
+
+const HSharedStyles = css`
+	font-family: var(--font-family-sans-serif);
+	line-height: 1.25;
+	font-weight: 900;
+	color: var(--color-gray-900);
+`;
+
+export const H1 = styled.h1`
+	${HSharedStyles}
+	margin: var(--margin-lg) 0;
+	font-size: var(--font-size-2xl);
+`;
+
+export const H2 = styled.h2`
+	${HSharedStyles}
+	margin: var(--margin-lg) 0;
+	font-size: var(--font-size-xl);
+`;
+
+export const H3 = styled.h3`
+	${HSharedStyles}
+	margin: var(--margin-md) 0;
+	font-size: var(--font-size-lg);
+`;
+
+export const H4 = styled.h4`
+	${HSharedStyles}
+	margin: var(--margin-md) 0;
+	font-size: var(--font-size-md);
+`;
+
+export const H5 = styled.h5`
+	${HSharedStyles}
+	margin: var(--margin-md) 0;
+	font-size: var(--font-size-base);
+`;
+
+export const H6 = styled.h6`
+	${HSharedStyles}
+	margin: var(--margin-md) 0;
+	font-size: var(--font-size-sm);
+`;
+
+export const Ul = styled.ul`
+	list-style-type: unset;
+	margin: var(--margin-md) 0 var(--margin-md) var(--margin-xl);
+`;
+
+export const Ol = styled.ol`
+	list-style-type: decimal;
+	margin: var(--margin-md) 0 var(--margin-md) var(--margin-xl);
+`;
+
+const PSharedStyles = css`
+	margin: var(--margin-md) 0;
+	line-height: 1.35;
+	max-width: 60ch;
+`;
+
+export const P1 = styled.p`
+	${PSharedStyles}
+	font-size: var(--font-size-base);
+`;
+
+export const P2 = styled.p`
+	${PSharedStyles}
+	font-size: var(--font-size-sm);
+	color: var(--color-gray-600);
+`;
+
+export const Link = styled.a`
+	color: var(--color-blue-400);
+	transition: color 100ms;
+
+	&:hover {
+		color: var(--color-blue-500);
+	}
+
+	&:active {
+		color: var(--color-blue-600);
+	}
+`;
+
+export const Strong = styled.strong`
+	font-weight: 600;
+	color: var(--color-gray-800);
+`;
+
+export const Italic = styled.em`
+	font-style: italic;
+	font-weight: 200;
+`;
+
+export const InlineCode = styled.code`
+	background-color: var(--color-blue-200);
+	font-family: var(--font-family-monospace);
+
+	&::before,
+	&::after {
+		content: '\`';
+	}
+`;
