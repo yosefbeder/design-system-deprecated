@@ -8,9 +8,8 @@ interface StyledButtonProps {
 }
 
 const ButtonSharedStyles = css`
-	padding: var(--margin-sm) var(--margin-md);
-	font-size: var(--font-size);
-	border-radius: var(--border-radius-sm);
+	padding: var(--space-sm) var(--space-md);
+	border-radius: var(--rounded-sm);
 	user-select: none;
 
 	transition: border-color 100ms, background-color 100ms, color 100ms;
@@ -198,7 +197,7 @@ const Button: React.FC<ButtonProps> = ({
 			display: flex;
 
 			& > *:first-child {
-				margin-right: var(--margin-md);
+				margin-right: var(--space-md);
 			}
 		`;
 
@@ -214,7 +213,7 @@ const Button: React.FC<ButtonProps> = ({
 			display: flex;
 
 			& > *:last-child {
-				margin-left: var(--margin-md);
+				margin-left: var(--space-md);
 			}
 		`;
 

@@ -63,40 +63,41 @@ button {
 
 	/* FONTS SIZES*/
 
-	--font-size-4xl: 6rem;
-	--font-size-3xl: 4rem;
-	--font-size-2xl: 2.5rem;
-	--font-size-xl: 1.875rem;
-	--font-size-lg: 1.5rem;
-	--font-size-md: 1.25rem;
-	--font-size-base: 1rem;
-	--font-size-sm: 0.85rem;
+	--font-4xl: 6rem;
+	--font-3xl: 4rem;
+	--font-2xl: 2.5rem;
+	--font-xl: 1.875rem;
+	--font-lg: 1.5rem;
+	--font-md: 1.25rem;
+	--font-base: 1rem;
+	--font-sm: 0.85rem;
 
 	/* MARGINS */
 
-	--margin-sm: 0.4rem;
-	--margin-md: 0.6rem;
-	--margin-lg: 0.8rem;
-	--margin-xl: 1rem;
-	--margin-2xl: 1.6rem;
-	--margin-3xl: 2.4rem;
+	--space-sm: 0.4rem;
+	--space-md: 0.6rem;
+	--space-lg: 0.8rem;
+	--space-xl: 1rem;
+	--space-2xl: 1.6rem;
+	--space-3xl: 2.4rem;
 
 	/* FONT FAMILYS */
 
-	--font-family-sans-serif: 'Inter', sans-serif;
-	--font-family-serif: 'Merriweather', serif;
-	--font-family-monospace: 'Azeret Mono', monospace;
+	--font-sans-serif: 'Inter', sans-serif;
+	--font-serif: 'Merriweather', serif;
+	--font-monospace: 'Azeret Mono', monospace;
 
 	/* BORDER RADIUS */
 
-	--border-radius-sm: 0.25rem;
-	--border-radius-md: 0.5rem;
-	--border-radius-lg: 2rem;
+	--rounded-sm: 0.25rem;
+	--rounded-md: 0.5rem;
+	--rounded-lg: 2rem;
+	--rounded-full: 50%;
 }
 
 body {
-	font-family: var(--font-family-serif);
-	font-size: var(--font-size-base);
+	font-family: var(--font-serif);
+	font-size: var(--font-base);
 	color: var(--color-gray-700);
 }
 

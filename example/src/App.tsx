@@ -13,6 +13,7 @@ import {
 	Italic,
 	InlineCode,
 	Link,
+	Blockquote,
 } from '../../src/typography';
 import Button, {
 	PrimaryLoadingSpinner,
@@ -91,6 +92,13 @@ function App() {
 				<P1 as="li">Think of the the name of it.</P1>
 				<P1 as="li">Think whether it will change or not.</P1>
 			</Ol>
+			<H3WithId>Blockquote</H3WithId>
+			<Blockquote>
+				<P1>
+					Failure is better than doing nothing, because doing nothing is the
+					ultimate failure.
+				</P1>
+			</Blockquote>
 			<H2WithId>Buttons</H2WithId>
 			<H3WithId>Primary Button</H3WithId>
 			<ButtonGroup>
