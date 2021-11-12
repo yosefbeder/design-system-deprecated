@@ -19,6 +19,8 @@ import Button, {
 	SecondaryLoadingSpinner,
 	TertiaryLoadingSpinner,
 } from '../../src/components/Button';
+import NavLink from '../../src/components/NavLink';
+import { useState } from 'react';
 
 const H2WithId = withId(H2);
 const H3WithId = withId(H3);
@@ -37,7 +39,11 @@ const ButtonGroup = styled.div`
 	align-items: start;
 `;
 
+const pages = ['Home', 'Work', 'Blog', 'About'];
+
 function App() {
+	const [navigated, setNavigated] = useState('Home');
+
 	return (
 		<Article>
 			<H1>Components</H1>
@@ -121,6 +127,18 @@ function App() {
 				<Button variant="tertiary" state="disabled">
 					Disabled
 				</Button>
+			</ButtonGroup>
+			<H2WithId>NavLink</H2WithId>
+			<ButtonGroup>
+				{pages.map((page, index) => (
+					<NavLink
+						key={index}
+						isNavigatedTo={page === navigated}
+						onNavigate={() => setNavigated(page)}
+					>
+						{page}
+					</NavLink>
+				))}
 			</ButtonGroup>
 		</Article>
 	);
