@@ -14,6 +14,11 @@ import {
 	InlineCode,
 	Link,
 } from '../../src/typography';
+import Button, {
+	PrimaryLoadingSpinner,
+	SecondaryLoadingSpinner,
+	TertiaryLoadingSpinner,
+} from '../../src/components/Button';
 
 const H2WithId = withId(H2);
 const H3WithId = withId(H3);
@@ -24,6 +29,12 @@ const Article = styled.article`
 	min-height: 100vh;
 	margin: 0 auto;
 	padding: 0.05px;
+`;
+
+const ButtonGroup = styled.div`
+	display: flex;
+	gap: 0.5rem;
+	align-items: start;
 `;
 
 function App() {
@@ -74,6 +85,43 @@ function App() {
 				<P1 as="li">Think of the the name of it.</P1>
 				<P1 as="li">Think whether it will change or not.</P1>
 			</Ol>
+			<H2WithId>Buttons</H2WithId>
+			<H3WithId>Primary Button</H3WithId>
+			<ButtonGroup>
+				<Button>Normal</Button>
+				<Button state="loading" leftIcon={<PrimaryLoadingSpinner />}>
+					Loading
+				</Button>
+				<Button state="disabled">Disabled</Button>
+			</ButtonGroup>
+			<H3WithId>Secondary Button</H3WithId>
+			<ButtonGroup>
+				<Button variant="secondary">Normal</Button>
+				<Button
+					variant="secondary"
+					state="loading"
+					leftIcon={<SecondaryLoadingSpinner />}
+				>
+					Loading
+				</Button>
+				<Button variant="secondary" state="disabled">
+					Disabled
+				</Button>
+			</ButtonGroup>
+			<H3WithId>Tertiary Button</H3WithId>
+			<ButtonGroup>
+				<Button variant="tertiary">Normal</Button>
+				<Button
+					variant="tertiary"
+					state="loading"
+					leftIcon={<TertiaryLoadingSpinner />}
+				>
+					Loading
+				</Button>
+				<Button variant="tertiary" state="disabled">
+					Disabled
+				</Button>
+			</ButtonGroup>
 		</Article>
 	);
 }
