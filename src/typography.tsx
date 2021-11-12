@@ -179,5 +179,6 @@ export const Blockquote = styled.blockquote`
 		left: -0.75rem;
 		font-family: var(--font-monospace);
 		font-size: var(--font-4xl);
+		pointer-events: none;
 	}
 `;
