@@ -4,7 +4,6 @@ import {
 	H1,
 	H2,
 	H3,
-	withId,
 	P1,
 	P2,
 	Ul,
@@ -15,6 +14,7 @@ import {
 	Link,
 	Blockquote,
 } from '../../src/typography';
+import { withId } from '../../src/utils';
 import Button, {
 	PrimaryLoadingSpinner,
 	SecondaryLoadingSpinner,
