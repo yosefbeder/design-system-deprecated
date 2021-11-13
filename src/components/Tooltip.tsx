@@ -23,6 +23,7 @@ interface ComponentProps {
 
 const Component = styled(P2)<ComponentProps>`
 	position: absolute;
+	z-index: 10;
 	${({ position }) => {
 		if (position === 'top')
 			return css`
