@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import '../../src/index.css';
 import {
@@ -21,7 +22,13 @@ import Button, {
 	TertiaryLoadingSpinner,
 } from '../../src/components/Button';
 import NavLink from '../../src/components/NavLink';
-import { useState } from 'react';
+import Tooltip from '../../src/components/Tooltip';
+import {
+	HiArrowDown as ArrowDown,
+	HiArrowUp as ArrowUp,
+	HiArrowLeft as ArrowLeft,
+	HiArrowRight as ArrowRight,
+} from 'react-icons/hi';
 
 const H2WithId = withId(H2);
 const H3WithId = withId(H3);
@@ -34,10 +41,15 @@ const Article = styled.article`
 	padding: 0.05px;
 `;
 
-const ButtonGroup = styled.div`
+const ButtonsGroup = styled.div`
 	display: flex;
 	gap: 0.5rem;
 	align-items: start;
+`;
+
+const TooltipsGroup = styled.div`
+	display: flex;
+	gap: 3.5rem;
 `;
 
 const pages = ['Home', 'Work', 'Blog', 'About'];
@@ -101,15 +113,15 @@ function App() {
 			</Blockquote>
 			<H2WithId>Buttons</H2WithId>
 			<H3WithId>Primary Button</H3WithId>
-			<ButtonGroup>
+			<ButtonsGroup>
 				<Button>Normal</Button>
 				<Button state="loading" leftIcon={<PrimaryLoadingSpinner />}>
 					Loading
 				</Button>
 				<Button state="disabled">Disabled</Button>
-			</ButtonGroup>
+			</ButtonsGroup>
 			<H3WithId>Secondary Button</H3WithId>
-			<ButtonGroup>
+			<ButtonsGroup>
 				<Button variant="secondary">Normal</Button>
 				<Button
 					variant="secondary"
@@ -121,9 +133,9 @@ function App() {
 				<Button variant="secondary" state="disabled">
 					Disabled
 				</Button>
-			</ButtonGroup>
+			</ButtonsGroup>
 			<H3WithId>Tertiary Button</H3WithId>
-			<ButtonGroup>
+			<ButtonsGroup>
 				<Button variant="tertiary">Normal</Button>
 				<Button
 					variant="tertiary"
@@ -135,9 +147,9 @@ function App() {
 				<Button variant="tertiary" state="disabled">
 					Disabled
 				</Button>
-			</ButtonGroup>
+			</ButtonsGroup>
 			<H2WithId>NavLink</H2WithId>
-			<ButtonGroup>
+			<ButtonsGroup>
 				{pages.map((page, index) => (
 					<NavLink
 						key={index}
@@ -147,7 +159,22 @@ function App() {
 						{page}
 					</NavLink>
 				))}
-			</ButtonGroup>
+			</ButtonsGroup>
+			<H2WithId>Tooltip</H2WithId>
+			<TooltipsGroup>
+				<Tooltip content="Bottom" position="bottom">
+					<ArrowDown size={20} />
+				</Tooltip>
+				<Tooltip content="Top" position="top">
+					<ArrowUp size={20} />
+				</Tooltip>
+				<Tooltip content="Right" position="right">
+					<ArrowRight size={20} />
+				</Tooltip>
+				<Tooltip content="Left" position="left">
+					<ArrowLeft size={20} />
+				</Tooltip>
+			</TooltipsGroup>
 		</Article>
 	);
 }
