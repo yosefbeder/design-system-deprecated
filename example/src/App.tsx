@@ -23,6 +23,7 @@ import Button, {
 } from '../../src/components/Button';
 import NavLink from '../../src/components/NavLink';
 import Tooltip from '../../src/components/Tooltip';
+import IconButton from '../../src/components/IconButton';
 import {
 	HiArrowDown as ArrowDown,
 	HiArrowUp as ArrowUp,
@@ -44,12 +45,6 @@ const Article = styled.article`
 const ButtonsGroup = styled.div`
 	display: flex;
 	gap: 0.5rem;
-	align-items: start;
-`;
-
-const TooltipsGroup = styled.div`
-	display: flex;
-	gap: 3.5rem;
 `;
 
 const pages = ['Home', 'Work', 'Blog', 'About'];
@@ -160,21 +155,29 @@ function App() {
 					</NavLink>
 				))}
 			</ButtonsGroup>
-			<H2WithId>Tooltip</H2WithId>
-			<TooltipsGroup>
+			<H2WithId>Icon Buttons</H2WithId>
+			<ButtonsGroup>
 				<Tooltip content="Bottom" position="bottom">
-					<ArrowDown size={20} />
+					<IconButton>
+						<ArrowDown size={20} />
+					</IconButton>
 				</Tooltip>
 				<Tooltip content="Top" position="top">
-					<ArrowUp size={20} />
+					<IconButton>
+						<ArrowUp size={20} />
+					</IconButton>
 				</Tooltip>
 				<Tooltip content="Right" position="right">
-					<ArrowRight size={20} />
+					<IconButton>
+						<ArrowRight size={20} />
+					</IconButton>
 				</Tooltip>
 				<Tooltip content="Left" position="left">
-					<ArrowLeft size={20} />
+					<IconButton>
+						<ArrowLeft size={20} />
+					</IconButton>
 				</Tooltip>
-			</TooltipsGroup>
+			</ButtonsGroup>
 		</Article>
 	);
 }
