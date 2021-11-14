@@ -17,15 +17,18 @@ import {
 	H4,
 } from '../../src/typography';
 import { withId } from '../../src/utils';
-import Button, {
+import {
+	Button,
+	NavLink,
+	Tooltip,
+	IconButton,
+	Card,
+} from '../../src/components';
+import {
 	PrimaryLoadingSpinner,
 	SecondaryLoadingSpinner,
 	TertiaryLoadingSpinner,
 } from '../../src/components/Button';
-import NavLink from '../../src/components/NavLink';
-import Tooltip from '../../src/components/Tooltip';
-import IconButton from '../../src/components/IconButton';
-import Card from '../../src/components/Card';
 import {
 	HiArrowDown as ArrowDown,
 	HiArrowUp as ArrowUp,
