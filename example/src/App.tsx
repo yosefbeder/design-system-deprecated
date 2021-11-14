@@ -14,6 +14,7 @@ import {
 	InlineCode,
 	Link,
 	Blockquote,
+	H4,
 } from '../../src/typography';
 import { withId } from '../../src/utils';
 import Button, {
@@ -24,6 +25,7 @@ import Button, {
 import NavLink from '../../src/components/NavLink';
 import Tooltip from '../../src/components/Tooltip';
 import IconButton from '../../src/components/IconButton';
+import Card from '../../src/components/Card';
 import {
 	HiArrowDown as ArrowDown,
 	HiArrowUp as ArrowUp,
@@ -44,7 +46,29 @@ const Article = styled.article`
 
 const ButtonsGroup = styled.div`
 	display: flex;
-	gap: 0.5rem;
+	gap: var(--space-sm);
+`;
+
+const CardsGroup = styled.div`
+	display: flex;
+	gap: var(--space-md);
+	margin: var(--space-md) 0;
+`;
+
+const Post = styled(Card)`
+	flex: 1;
+	padding: var(--space-md);
+	border-radius: var(--rounded-sm);
+
+	& > * {
+		margin: 0;
+	}
+
+	& > ${H4} {
+		border-bottom: 1px solid var(--color-gray-200);
+		padding-bottom: var(--space-sm);
+		margin-bottom: var(--space-sm);
+	}
 `;
 
 const pages = ['Home', 'Work', 'Blog', 'About'];
@@ -178,6 +202,29 @@ function App() {
 					</IconButton>
 				</Tooltip>
 			</ButtonsGroup>
+			<H2WithId>Cards</H2WithId>
+			<CardsGroup>
+				<Post elivate={1}>
+					<H4>Level 1</H4>
+					<P1>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</P1>
+				</Post>
+				<Post elivate={2}>
+					<H4>Level 2</H4>
+					<P1>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</P1>
+				</Post>
+				<Post elivate={3}>
+					<H4>Level 3</H4>
+					<P1>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</P1>
+				</Post>
+				<Post elivate={4}>
+					<H4>Level 4</H4>
+					<P1>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</P1>
+				</Post>
+				<Post elivate={5}>
+					<H4>Level 5</H4>
+					<P1>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</P1>
+				</Post>
+			</CardsGroup>
 		</Article>
 	);
 }

@@ -116,7 +116,7 @@ export const Blockquote = styled.blockquote`
 
 	overflow: hidden;
 
-	& > p {
+	& > ${P1}, & > ${P2} {
 		margin: 0;
 		max-width: 100%;
 	}
