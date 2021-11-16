@@ -69,10 +69,14 @@ const Component = styled(P2)<ComponentProps>`
 
 interface TooltipProps {
 	content: string;
-	position: Position;
+	position?: Position;
 }
 
-const Tooltip: React.FC<TooltipProps> = ({ children, content, position }) => {
+const Tooltip: React.FC<TooltipProps> = ({
+	children,
+	content,
+	position = 'bottom',
+}) => {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const [isMouseIn, setIsMouseIn] = useState(false);
 	const [{ width, height }, setSize] = useState({ width: 0, height: 0 });

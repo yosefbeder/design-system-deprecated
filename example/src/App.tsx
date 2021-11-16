@@ -14,21 +14,15 @@ import {
 	InlineCode,
 	Link,
 	Blockquote,
-	H4,
 } from '../../src/typography';
 import { withId } from '../../src/utils';
-import {
-	Button,
-	NavLink,
-	Tooltip,
-	IconButton,
-	Card,
-} from '../../src/components';
+import { Button, NavLink, Tooltip, IconButton } from '../../src/components';
 import {
 	PrimaryLoadingSpinner,
 	SecondaryLoadingSpinner,
 	TertiaryLoadingSpinner,
 } from '../../src/components/Button';
+import Input from '../../src/components/Input';
 import {
 	HiArrowDown as ArrowDown,
 	HiArrowUp as ArrowUp,
@@ -45,6 +39,7 @@ const Article = styled.article`
 	min-height: 100vh;
 	margin: 0 auto;
 	padding: 0.05px;
+	padding-bottom: var(--space-3xl);
 `;
 
 const ButtonsGroup = styled.div`
@@ -52,26 +47,11 @@ const ButtonsGroup = styled.div`
 	gap: var(--space-sm);
 `;
 
-const CardsGroup = styled.div`
+const InputsGroup = styled.div`
 	display: flex;
-	gap: var(--space-md);
+	gap: var(--space-sm);
+	max-width: calc(30rem + var(--space-sm));
 	margin: var(--space-md) 0;
-`;
-
-const Post = styled(Card)`
-	flex: 1;
-	padding: var(--space-md);
-	border-radius: var(--rounded-sm);
-
-	& > * {
-		margin: 0;
-	}
-
-	& > ${H4} {
-		border-bottom: 1px solid var(--color-gray-200);
-		padding-bottom: var(--space-sm);
-		margin-bottom: var(--space-sm);
-	}
 `;
 
 const pages = ['Home', 'Work', 'Blog', 'About'];
@@ -184,7 +164,7 @@ function App() {
 			</ButtonsGroup>
 			<H2WithId>Icon Buttons</H2WithId>
 			<ButtonsGroup>
-				<Tooltip content="Bottom" position="bottom">
+				<Tooltip content="Bottom">
 					<IconButton>
 						<ArrowDown size={20} />
 					</IconButton>
@@ -205,29 +185,16 @@ function App() {
 					</IconButton>
 				</Tooltip>
 			</ButtonsGroup>
-			<H2WithId>Cards</H2WithId>
-			<CardsGroup>
-				<Post elivate={1}>
-					<H4>Level 1</H4>
-					<P1>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</P1>
-				</Post>
-				<Post elivate={2}>
-					<H4>Level 2</H4>
-					<P1>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</P1>
-				</Post>
-				<Post elivate={3}>
-					<H4>Level 3</H4>
-					<P1>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</P1>
-				</Post>
-				<Post elivate={4}>
-					<H4>Level 4</H4>
-					<P1>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</P1>
-				</Post>
-				<Post elivate={5}>
-					<H4>Level 5</H4>
-					<P1>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</P1>
-				</Post>
-			</CardsGroup>
+			<H2WithId>Form fields</H2WithId>
+			<H3WithId>Inputs</H3WithId>
+			<InputsGroup>
+				<Input placeholder="First Name" />
+				<Input placeholder="Last Name" />
+				<Input type="number" placeholder="Age" min={3} max={100} />
+			</InputsGroup>
+			<InputsGroup>
+				<Input type="email" placeholder="Email" />
+			</InputsGroup>
 		</Article>
 	);
 }
