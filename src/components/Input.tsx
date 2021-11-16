@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 interface StyledInputProps {}
 
@@ -15,7 +15,7 @@ const StyledInput = styled.input<StyledInputProps>`
 	transition: border-color 100ms;
 
 	&:disabled {
-		background-color: var(--color-gray-200);
+		background-color: var(--color-gray-100);
 		cursor: not-allowed;
 	}
 

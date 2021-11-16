@@ -22,13 +22,15 @@ import {
 	Tooltip,
 	IconButton,
 	Switch,
+	Input,
+	Checkbox,
 } from '../../src/components';
+import { IconProvider } from '../../src/components/Checkbox';
 import {
 	PrimaryLoadingSpinner,
 	SecondaryLoadingSpinner,
 	TertiaryLoadingSpinner,
 } from '../../src/components/Button';
-import Input from '../../src/components/Input';
 import {
 	HiArrowDown as ArrowDown,
 	HiArrowUp as ArrowUp,
@@ -51,6 +53,7 @@ const Article = styled.article`
 const ButtonsGroup = styled.div`
 	display: flex;
 	gap: var(--space-sm);
+	margin: var(--space-md);
 `;
 
 const InputsGroup = styled.div`
@@ -64,12 +67,15 @@ const SwitchGroup = styled.div`
 	display: flex;
 	align-items: center;
 	gap: var(--space-md);
+	margin: var(--space-sm);
 
 	& > ${P1} {
 		margin: 0;
 		user-select: none;
 	}
 `;
+
+const CheckboxGroup = styled(SwitchGroup)``;
 
 const pages = ['Home', 'Work', 'Blog', 'About'];
 
@@ -252,6 +258,25 @@ function App() {
 					I agree to sell my privacy
 				</P1>
 			</SwitchGroup>
+			<H3WithId>Checkbox</H3WithId>
+			<CheckboxGroup>
+				<IconProvider>
+					<Checkbox id="checkbox-1" />
+				</IconProvider>
+				<P1 as="label" htmlFor="checkbox-1">
+					I agree to sell my privacy
+				</P1>
+			</CheckboxGroup>
+			<CheckboxGroup>
+				<Tooltip content="Disabled" position="left">
+					<IconProvider>
+						<Checkbox id="checkbox-2" disabled />
+					</IconProvider>
+				</Tooltip>
+				<P1 as="label" htmlFor="checkbox-2">
+					I agree to sell my privacy
+				</P1>
+			</CheckboxGroup>
 		</Article>
 	);
 }

@@ -1,16 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { P2 } from '../typography';
 
-interface ContainerProps {
-	width: number;
-	height: number;
-}
-
-const Container = styled.div<ContainerProps>`
+const Container = styled.div`
 	position: relative;
-	width: ${props => props.width}px;
-	height: ${props => props.height}px;
 	cursor: pointer;
 `;
 
@@ -79,26 +72,10 @@ const Tooltip: React.FC<TooltipProps> = ({
 }) => {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const [isMouseIn, setIsMouseIn] = useState(false);
-	const [{ width, height }, setSize] = useState({ width: 0, height: 0 });
-
-	useEffect(() => {
-		const container = containerRef.current!;
-		const child = (Array.from(container.childNodes) as HTMLElement[]).find(
-			node =>
-				getComputedStyle(node).getPropertyValue('position') !== 'absolute',
-		)!;
-
-		const width = parseInt(getComputedStyle(child).getPropertyValue('width'));
-		const height = parseInt(getComputedStyle(child).getPropertyValue('height'));
-
-		setSize({ width, height });
-	}, []);
 
 	return (
 		<Container
 			ref={containerRef}
-			width={width}
-			height={height}
 			onMouseEnter={() => setIsMouseIn(true)}
 			onMouseLeave={() => setIsMouseIn(false)}
 		>
