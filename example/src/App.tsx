@@ -204,22 +204,22 @@ function App() {
 			</ButtonsGroup>
 			<ButtonsGroup>
 				<Tooltip content="Bottom">
-					<IconButton isDisabled={true}>
+					<IconButton disabled>
 						<ArrowDown size={20} />
 					</IconButton>
 				</Tooltip>
 				<Tooltip content="Top" position="top">
-					<IconButton isDisabled={true}>
+					<IconButton disabled>
 						<ArrowUp size={20} />
 					</IconButton>
 				</Tooltip>
 				<Tooltip content="Right" position="right">
-					<IconButton isDisabled={true}>
+					<IconButton disabled>
 						<ArrowRight size={20} />
 					</IconButton>
 				</Tooltip>
 				<Tooltip content="Left" position="left">
-					<IconButton isDisabled={true}>
+					<IconButton disabled>
 						<ArrowLeft size={20} />
 					</IconButton>
 				</Tooltip>
@@ -228,8 +228,11 @@ function App() {
 			<H3WithId>Inputs</H3WithId>
 			<InputsGroup>
 				<Input placeholder="First Name" />
-				<Input placeholder="Last Name" />
+				<Input placeholder="Last Name" disabled />
+			</InputsGroup>
+			<InputsGroup>
 				<Input type="number" placeholder="Age" min={3} max={100} />
+				<Input placeholder="Phone number" />
 			</InputsGroup>
 			<InputsGroup>
 				<Input type="email" placeholder="Email" />
@@ -243,7 +246,7 @@ function App() {
 			</SwitchGroup>
 			<SwitchGroup>
 				<Tooltip content="Disabled" position="left">
-					<Switch id="switch-2" checked={true} disabled={true} />
+					<Switch id="switch-2" checked disabled />
 				</Tooltip>
 				<P1 as="label" htmlFor="switch-2">
 					I agree to sell my privacy

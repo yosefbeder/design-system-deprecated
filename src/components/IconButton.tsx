@@ -1,12 +1,11 @@
 import styled, { css } from 'styled-components';
 
 interface IconButtonProps {
-	isLoading?: boolean;
-	isDisabled?: boolean;
+	loading?: boolean;
 }
 
 const IconButton = styled.button.attrs<IconButtonProps>(props => ({
-	disabled: props.isLoading || props.isDisabled,
+	disabled: props.loading || props.disabled,
 }))<IconButtonProps>`
 	display: flex;
 	align-items: center;
@@ -22,8 +21,8 @@ const IconButton = styled.button.attrs<IconButtonProps>(props => ({
 	}
 
 	${props =>
-		!props.isLoading &&
-		!props.isDisabled &&
+		!props.loading &&
+		!props.disabled &&
 		css`
 			&:active {
 				background-color: var(--color-gray-300);

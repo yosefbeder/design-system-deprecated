@@ -3,8 +3,7 @@ import styled, { css } from 'styled-components';
 import LoadingSpinner from './LoadingSpinner';
 
 interface StyledButtonProps {
-	isLoading?: boolean;
-	isDisabled?: boolean;
+	loading?: boolean;
 }
 
 const ButtonSharedStyles = css`
@@ -17,15 +16,15 @@ const ButtonSharedStyles = css`
 
 export const StyledButtonPrimary = styled.button.attrs<StyledButtonProps>(
 	props => ({
-		disabled: props.isLoading || props.isDisabled,
+		disabled: props.loading || props.disabled,
 	}),
 )<StyledButtonProps>`
 	${ButtonSharedStyles}
 
 	${props => {
-		const color = props.isLoading
+		const color = props.loading
 			? 'var(--color-blue-300)'
-			: props.isDisabled
+			: props.disabled
 			? 'var(--color-gray-400)'
 			: 'var(--color-blue-400)';
 
@@ -39,9 +38,9 @@ export const StyledButtonPrimary = styled.button.attrs<StyledButtonProps>(
 
 	&:hover {
 		${props => {
-			const color = props.isLoading
+			const color = props.loading
 				? 'var(--color-blue-400)'
-				: props.isDisabled
+				: props.disabled
 				? 'var(--color-gray-500)'
 				: 'var(--color-blue-500)';
 
@@ -53,8 +52,8 @@ export const StyledButtonPrimary = styled.button.attrs<StyledButtonProps>(
 	}
 
 	${props =>
-		!props.isLoading &&
-		!props.isDisabled &&
+		!props.loading &&
+		!props.disabled &&
 		css`
 			&:active {
 				background-color: var(--color-blue-600);
@@ -69,15 +68,15 @@ export const StyledButtonPrimary = styled.button.attrs<StyledButtonProps>(
 
 export const StyledButtonSecondary = styled.button.attrs<StyledButtonProps>(
 	props => ({
-		disabled: props.isLoading || props.isDisabled,
+		disabled: props.loading || props.disabled,
 	}),
 )<StyledButtonProps>`
 	${ButtonSharedStyles}
 
 	${props => {
-		const color = props.isLoading
+		const color = props.loading
 			? 'var(--color-blue-300)'
-			: props.isDisabled
+			: props.disabled
 			? 'var(--color-gray-400)'
 			: 'var(--color-blue-400)';
 
@@ -98,8 +97,8 @@ export const StyledButtonSecondary = styled.button.attrs<StyledButtonProps>(
 	}
 
 	${props =>
-		!props.isLoading &&
-		!props.isDisabled &&
+		!props.loading &&
+		!props.disabled &&
 		css`
 			&:active {
 				background-color: var(--color-blue-500);
@@ -114,7 +113,7 @@ export const StyledButtonSecondary = styled.button.attrs<StyledButtonProps>(
 
 export const StyledButtonTertiary = styled.button.attrs<StyledButtonProps>(
 	props => ({
-		disabled: props.isLoading || props.isDisabled,
+		disabled: props.loading || props.disabled,
 	}),
 )<StyledButtonProps>`
 	${ButtonSharedStyles}
@@ -127,8 +126,8 @@ export const StyledButtonTertiary = styled.button.attrs<StyledButtonProps>(
 	}
 
 	${props =>
-		!props.isLoading &&
-		!props.isDisabled &&
+		!props.loading &&
+		!props.disabled &&
 		css`
 			&:active {
 				background-color: var(--color-gray-300);
@@ -168,7 +167,7 @@ type ButtonVariant = 'primary' | 'secondary' | 'tertiary';
 type ButtonState = 'normal' | 'loading' | 'disabled';
 
 const getStyledButtonProps = (state: ButtonState) => {
-	return { isDisabled: state === 'disabled', isLoading: state === 'loading' };
+	return { disabled: state === 'disabled', loading: state === 'loading' };
 };
 
 interface ButtonProps {
