@@ -37,8 +37,12 @@ const Switch = styled.input.attrs(() => ({
 		background-color: var(--color-gray-300);
 	}
 
-	&:disabled:checked:hover {
+	&:disabled:checked {
 		background-color: var(--color-gray-300);
+	}
+
+	&:disabled:checked:hover {
+		background-color: var(--color-gray-400);
 	}
 
 	&::before {

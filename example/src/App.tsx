@@ -252,9 +252,17 @@ function App() {
 			</SwitchGroup>
 			<SwitchGroup>
 				<Tooltip content="Disabled" position="left">
-					<Switch id="switch-2" checked disabled />
+					<Switch id="switch-2" disabled />
 				</Tooltip>
 				<P1 as="label" htmlFor="switch-2">
+					I agree to sell my privacy
+				</P1>
+			</SwitchGroup>
+			<SwitchGroup>
+				<Tooltip content="Disabled" position="left">
+					<Switch id="switch-3" checked disabled />
+				</Tooltip>
+				<P1 as="label" htmlFor="switch-3">
 					I agree to sell my privacy
 				</P1>
 			</SwitchGroup>
@@ -271,6 +279,16 @@ function App() {
 				<Tooltip content="Disabled" position="left">
 					<IconProvider>
 						<Checkbox id="checkbox-2" disabled />
+					</IconProvider>
+				</Tooltip>
+				<P1 as="label" htmlFor="checkbox-2">
+					I agree to sell my privacy
+				</P1>
+			</CheckboxGroup>
+			<CheckboxGroup>
+				<Tooltip content="Disabled" position="left">
+					<IconProvider>
+						<Checkbox id="checkbox-2" checked disabled />
 					</IconProvider>
 				</Tooltip>
 				<P1 as="label" htmlFor="checkbox-2">
