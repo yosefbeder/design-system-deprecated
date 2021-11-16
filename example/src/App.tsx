@@ -16,7 +16,13 @@ import {
 	Blockquote,
 } from '../../src/typography';
 import { withId } from '../../src/utils';
-import { Button, NavLink, Tooltip, IconButton } from '../../src/components';
+import {
+	Button,
+	NavLink,
+	Tooltip,
+	IconButton,
+	Switch,
+} from '../../src/components';
 import {
 	PrimaryLoadingSpinner,
 	SecondaryLoadingSpinner,
@@ -52,6 +58,17 @@ const InputsGroup = styled.div`
 	gap: var(--space-sm);
 	max-width: calc(30rem + var(--space-sm));
 	margin: var(--space-md) 0;
+`;
+
+const SwitchGroup = styled.div`
+	display: flex;
+	align-items: center;
+	gap: var(--space-md);
+
+	& > ${P1} {
+		margin: 0;
+		user-select: none;
+	}
 `;
 
 const pages = ['Home', 'Work', 'Blog', 'About'];
@@ -150,7 +167,7 @@ function App() {
 					Disabled
 				</Button>
 			</ButtonsGroup>
-			<H2WithId>NavLink</H2WithId>
+			<H2WithId>Nav Link</H2WithId>
 			<ButtonsGroup>
 				{pages.map((page, index) => (
 					<NavLink
@@ -162,7 +179,7 @@ function App() {
 					</NavLink>
 				))}
 			</ButtonsGroup>
-			<H2WithId>Icon Buttons</H2WithId>
+			<H2WithId>Icon Button</H2WithId>
 			<ButtonsGroup>
 				<Tooltip content="Bottom">
 					<IconButton>
@@ -185,7 +202,29 @@ function App() {
 					</IconButton>
 				</Tooltip>
 			</ButtonsGroup>
-			<H2WithId>Form fields</H2WithId>
+			<ButtonsGroup>
+				<Tooltip content="Bottom">
+					<IconButton isDisabled={true}>
+						<ArrowDown size={20} />
+					</IconButton>
+				</Tooltip>
+				<Tooltip content="Top" position="top">
+					<IconButton isDisabled={true}>
+						<ArrowUp size={20} />
+					</IconButton>
+				</Tooltip>
+				<Tooltip content="Right" position="right">
+					<IconButton isDisabled={true}>
+						<ArrowRight size={20} />
+					</IconButton>
+				</Tooltip>
+				<Tooltip content="Left" position="left">
+					<IconButton isDisabled={true}>
+						<ArrowLeft size={20} />
+					</IconButton>
+				</Tooltip>
+			</ButtonsGroup>
+			<H2WithId>Form Fields</H2WithId>
 			<H3WithId>Inputs</H3WithId>
 			<InputsGroup>
 				<Input placeholder="First Name" />
@@ -195,6 +234,21 @@ function App() {
 			<InputsGroup>
 				<Input type="email" placeholder="Email" />
 			</InputsGroup>
+			<H3WithId>Switch</H3WithId>
+			<SwitchGroup>
+				<Switch id="switch-1" />
+				<P1 as="label" htmlFor="switch-1">
+					I agree to sell my privacy
+				</P1>
+			</SwitchGroup>
+			<SwitchGroup>
+				<Tooltip content="Disabled" position="left">
+					<Switch id="switch-2" checked={true} disabled={true} />
+				</Tooltip>
+				<P1 as="label" htmlFor="switch-2">
+					I agree to sell my privacy
+				</P1>
+			</SwitchGroup>
 		</Article>
 	);
 }
