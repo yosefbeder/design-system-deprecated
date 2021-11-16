@@ -53,7 +53,7 @@ const Article = styled.article`
 const ButtonsGroup = styled.div`
 	display: flex;
 	gap: var(--space-sm);
-	margin: var(--space-md);
+	margin: var(--space-md) 0;
 `;
 
 const InputsGroup = styled.div`
@@ -67,7 +67,7 @@ const SwitchGroup = styled.div`
 	display: flex;
 	align-items: center;
 	gap: var(--space-md);
-	margin: var(--space-sm);
+	margin: var(--space-sm) 0;
 
 	& > ${P1} {
 		margin: 0;
