@@ -1,25 +1,28 @@
 import React from 'react';
 import styled, { StyledComponentProps } from 'styled-components';
-import { HiCheck as Check } from 'react-icons/hi';
 
-const Icon = styled(Check)`
+const Icon = styled.div`
 	position: absolute;
-	display: block;
-	left: 50%;
 	top: 50%;
+	left: 50%;
 	transform: translate(-50%, -50%);
-	color: var(--color-white);
+
+	width: calc(var(--size) - var(--padding) * 2);
+	height: calc(var(--size) - var(--padding) * 2);
+	background-color: var(--color-white);
+	border-radius: var(--rounded-full);
+
 	pointer-events: none;
 `;
 
-const Input = styled.input.attrs(() => ({ type: 'checkbox' }))`
+const Input = styled.input.attrs(() => ({ type: 'radio' }))`
 	display: block;
-
-	width: 1.125rem;
-	height: 1.125rem;
-	background-color: var(--color-white);
-	border-radius: var(--rounded-sm);
+	width: var(--size);
+	height: var(--size);
+	border-radius: var(--rounded-full);
 	border: 1px solid var(--color-gray-200);
+	background-color: var(--color-white);
+
 	transition: border-color 100ms, background-color 100ms;
 	cursor: pointer;
 
@@ -29,7 +32,7 @@ const Input = styled.input.attrs(() => ({ type: 'checkbox' }))`
 	}
 
 	&:disabled + ${Icon} {
-		color: var(--color-gray-100);
+		background-color: var(--color-gray-100);
 	}
 
 	&:hover {
@@ -48,14 +51,17 @@ const Input = styled.input.attrs(() => ({ type: 'checkbox' }))`
 `;
 
 const Container = styled.div`
+	--padding: var(--space-vsm);
+	--size: 1.125rem;
+
 	position: relative;
 `;
 
-const Checkbox: React.FC<StyledComponentProps<
+const Radio: React.FC<StyledComponentProps<
 	'input',
 	any,
 	{
-		type: 'checkbox';
+		type: 'radio';
 	},
 	'type'
 >> = ({ children, ...props }) => {
@@ -67,4 +73,4 @@ const Checkbox: React.FC<StyledComponentProps<
 	);
 };
 
-export default Checkbox;
+export default Radio;

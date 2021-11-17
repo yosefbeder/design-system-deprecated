@@ -26,7 +26,6 @@ import {
 	Checkbox,
 	Radio,
 } from '../../src/components';
-import { IconProvider } from '../../src/components/Checkbox';
 import {
 	PrimaryLoadingSpinner,
 	SecondaryLoadingSpinner,
@@ -271,18 +270,14 @@ function App() {
 			</SwitchGroup>
 			<H3WithId>Checkbox</H3WithId>
 			<CheckboxGroup>
-				<IconProvider>
-					<Checkbox id="checkbox-1" />
-				</IconProvider>
+				<Checkbox id="checkbox-1" />
 				<P1 as="label" htmlFor="checkbox-1">
 					I agree to sell my privacy
 				</P1>
 			</CheckboxGroup>
 			<CheckboxGroup>
 				<Tooltip content="It's not your choice, it's ours" position="left">
-					<IconProvider>
-						<Checkbox id="checkbox-2" disabled />
-					</IconProvider>
+					<Checkbox id="checkbox-2" disabled />
 				</Tooltip>
 				<P1 as="label" htmlFor="checkbox-2">
 					I agree to sell my privacy
@@ -290,9 +285,7 @@ function App() {
 			</CheckboxGroup>
 			<CheckboxGroup>
 				<Tooltip content="It's not your choice, it's ours" position="left">
-					<IconProvider>
-						<Checkbox id="checkbox-2" checked disabled />
-					</IconProvider>
+					<Checkbox id="checkbox-2" checked disabled />
 				</Tooltip>
 				<P1 as="label" htmlFor="checkbox-2">
 					I agree to sell my privacy

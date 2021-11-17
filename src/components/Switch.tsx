@@ -1,14 +1,27 @@
-import styled from 'styled-components';
+import React from 'react';
+import styled, { StyledComponentProps } from 'styled-components';
 
-const Switch = styled.input.attrs(() => ({
+const Icon = styled.div`
+	position: absolute;
+	content: '';
+	top: 50%;
+	left: var(--padding);
+
+	width: calc(var(--height) - var(--padding) * 2);
+	height: calc(var(--height) - var(--padding) * 2);
+	border-radius: var(--rounded-full);
+	background-color: var(--color-white);
+
+	transform: translate(0, -50%);
+	pointer-events: none;
+
+	transition: transform 100ms ease-out;
+`;
+
+const Input = styled.input.attrs(() => ({
 	type: 'checkbox',
 }))`
-	--width: 2.25rem;
-	--height: calc(var(--width) / 2);
-	--padding: var(--space-vsm);
-
-	position: relative;
-
+	display: block;
 	width: var(--width);
 	height: var(--height);
 	border-radius: var(--rounded-full);
@@ -53,29 +66,37 @@ const Switch = styled.input.attrs(() => ({
 		border-color: var(--color-gray-400);
 	}
 
-	&::before {
-		position: absolute;
-		content: '';
-		top: 50%;
-		left: var(--padding);
-
-		width: calc(var(--height) - var(--padding) * 2);
-		height: calc(var(--height) - var(--padding) * 2);
-		border-radius: var(--rounded-full);
-		background-color: var(--color-white);
-
-		transform: translate(0, -50%);
-
-		transition: transform 100ms ease-out;
-	}
-
-	&:checked::before {
+	&:checked + ${Icon} {
 		transform: translate(calc(var(--width) - 100% - var(--padding) * 2), -50%);
 	}
 
-	&:disabled::before {
+	&:disabled + ${Icon} {
 		background-color: var(--color-gray-100);
 	}
 `;
+
+const Container = styled.div`
+	--width: 2.25rem;
+	--height: calc(var(--width) / 2);
+	--padding: var(--space-vsm);
+
+	position: relative;
+`;
+
+const Switch: React.FC<StyledComponentProps<
+	'input',
+	any,
+	{
+		type: 'checkbox';
+	},
+	'type'
+>> = ({ children, ...props }) => {
+	return (
+		<Container>
+			<Input {...props} />
+			<Icon />
+		</Container>
+	);
+};
 
 export default Switch;
