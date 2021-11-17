@@ -76,8 +76,12 @@ const Tooltip: React.FC<TooltipProps> = ({
 	return (
 		<Container
 			ref={containerRef}
-			onMouseEnter={() => setIsMouseIn(true)}
-			onMouseLeave={() => setIsMouseIn(false)}
+			onPointerEnter={() => {
+				setIsMouseIn(true);
+			}}
+			onPointerLeave={() => {
+				setIsMouseIn(false);
+			}}
 		>
 			{children}
 			<Component position={position} isShown={isMouseIn}>
