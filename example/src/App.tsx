@@ -24,6 +24,7 @@ import {
 	Switch,
 	Input,
 	Checkbox,
+	Radio,
 } from '../../src/components';
 import { IconProvider } from '../../src/components/Checkbox';
 import {
@@ -76,6 +77,8 @@ const SwitchGroup = styled.div`
 `;
 
 const CheckboxGroup = styled(SwitchGroup)``;
+
+const RadioGroup = styled(SwitchGroup)``;
 
 const pages = ['Home', 'Work', 'Blog', 'About'];
 
@@ -251,7 +254,7 @@ function App() {
 				</P1>
 			</SwitchGroup>
 			<SwitchGroup>
-				<Tooltip content="Disabled" position="left">
+				<Tooltip content="It's not your choice, it's ours" position="left">
 					<Switch id="switch-2" disabled />
 				</Tooltip>
 				<P1 as="label" htmlFor="switch-2">
@@ -259,7 +262,7 @@ function App() {
 				</P1>
 			</SwitchGroup>
 			<SwitchGroup>
-				<Tooltip content="Disabled" position="left">
+				<Tooltip content="It's not your choice, it's ours" position="left">
 					<Switch id="switch-3" checked disabled />
 				</Tooltip>
 				<P1 as="label" htmlFor="switch-3">
@@ -276,7 +279,7 @@ function App() {
 				</P1>
 			</CheckboxGroup>
 			<CheckboxGroup>
-				<Tooltip content="Disabled" position="left">
+				<Tooltip content="It's not your choice, it's ours" position="left">
 					<IconProvider>
 						<Checkbox id="checkbox-2" disabled />
 					</IconProvider>
@@ -286,7 +289,7 @@ function App() {
 				</P1>
 			</CheckboxGroup>
 			<CheckboxGroup>
-				<Tooltip content="Disabled" position="left">
+				<Tooltip content="It's not your choice, it's ours" position="left">
 					<IconProvider>
 						<Checkbox id="checkbox-2" checked disabled />
 					</IconProvider>
@@ -295,6 +298,49 @@ function App() {
 					I agree to sell my privacy
 				</P1>
 			</CheckboxGroup>
+			<H3WithId>Radio</H3WithId>
+			<P1>What's your favorite javascript framework?</P1>
+			<RadioGroup>
+				<Radio name="favorite-framework" value="react" id="react" />
+				<P1 as="label" htmlFor="react">
+					React
+				</P1>
+			</RadioGroup>
+			<RadioGroup>
+				<Radio name="favorite-framework" value="vue" id="vue" />
+				<P1 as="label" htmlFor="vue">
+					Vue
+				</P1>
+			</RadioGroup>
+			<RadioGroup>
+				<Radio name="favorite-framework" value="angular" id="angular" />
+				<P1 as="label" htmlFor="angular">
+					Angular
+				</P1>
+			</RadioGroup>
+			<RadioGroup>
+				<Radio name="favorite-framework" value="svelte" id="svelte" />
+				<P1 as="label" htmlFor="svelte">
+					Svelte
+				</P1>
+			</RadioGroup>
+			<RadioGroup>
+				<Tooltip
+					content="Is Next.js even a standalone framework?"
+					position="left"
+				>
+					<Radio name="favorite-framework" value="next" id="next" disabled />
+				</Tooltip>
+				<P1 as="label" htmlFor="next">
+					Next.js
+				</P1>
+			</RadioGroup>
+			<RadioGroup>
+				<Radio name="favorite-framework" value="blitz" id="blitz" />
+				<P1 as="label" htmlFor="blitz">
+					Blitz.js
+				</P1>
+			</RadioGroup>
 		</Article>
 	);
 }

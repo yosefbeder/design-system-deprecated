@@ -5,7 +5,7 @@ const Switch = styled.input.attrs(() => ({
 }))`
 	--width: 2.25rem;
 	--height: calc(var(--width) / 2);
-	--padding: 0.325rem;
+	--padding: 0.25rem;
 
 	position: relative;
 
@@ -13,56 +13,68 @@ const Switch = styled.input.attrs(() => ({
 	height: var(--height);
 	border-radius: calc(var(--height) / 2);
 	background-color: var(--color-gray-200);
-	transition: background-color 100ms linear;
+	border: 1px solid var(--color-gray-200);
+	transition: background-color 100ms, border-color 100ms;
 	cursor: pointer;
 
 	&:hover {
 		background-color: var(--color-gray-300);
+		border-color: var(--color-gray-300);
 	}
 
 	&:checked {
 		background-color: var(--color-blue-400);
+		border-color: var(--color-blue-400);
 	}
 
 	&:checked:hover {
 		background-color: var(--color-blue-500);
+		border-color: var(--color-blue-500);
 	}
 
 	&:disabled {
 		background-color: var(--color-gray-200);
+		border-color: var(--color-gray-200);
 		cursor: not-allowed;
 	}
 
 	&:disabled:hover {
 		background-color: var(--color-gray-300);
+		border-color: var(--color-gray-300);
 	}
 
 	&:disabled:checked {
 		background-color: var(--color-gray-300);
+		border-color: var(--color-gray-300);
 	}
 
 	&:disabled:checked:hover {
 		background-color: var(--color-gray-400);
+		border-color: var(--color-gray-400);
 	}
 
 	&::before {
 		position: absolute;
 		content: '';
+		top: 50%;
 
-		width: calc(var(--width) / 2 - var(--padding));
-		height: calc(var(--height) - var(--padding));
+		width: calc(var(--width) / 2 - var(--padding) * 2);
+		height: calc(var(--height) - var(--padding) * 2);
 		border-radius: 50%;
 		background-color: var(--color-white);
 
-		transform: translate(calc(var(--padding) / 2), calc(var(--padding) / 2));
+		transform: translate(var(--padding), -50%);
 
 		transition: transform 100ms ease-out;
 	}
 
 	&:checked::before {
 		transform: translate(
-			calc(var(--width) - var(--width) / 2 + var(--padding) / 2),
-			calc(var(--padding) / 2)
+			calc(
+				var(--width) - calc(var(--width) / 2 - var(--padding) * 2) -
+					var(--padding)
+			),
+			-50%
 		);
 	}
 
