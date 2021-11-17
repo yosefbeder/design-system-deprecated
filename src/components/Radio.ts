@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Radio = styled.input.attrs(() => ({ type: 'radio' }))`
-	--padding: 0.25rem;
+	--padding: var(--space-vsm);
 	--size: 1.125rem;
 
 	position: relative;
@@ -9,7 +9,7 @@ const Radio = styled.input.attrs(() => ({ type: 'radio' }))`
 	display: block;
 	width: var(--size);
 	height: var(--size);
-	border-radius: 50%;
+	border-radius: var(--rounded-full);
 	border: 1px solid var(--color-gray-200);
 	background-color: var(--color-white);
 
@@ -24,7 +24,7 @@ const Radio = styled.input.attrs(() => ({ type: 'radio' }))`
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		border-radius: 50%;
+		border-radius: var(--rounded-full);
 
 		background-color: var(--color-white);
 	}

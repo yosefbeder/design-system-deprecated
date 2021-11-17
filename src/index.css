@@ -74,12 +74,13 @@ button {
 
 	/* MARGINS */
 
-	--space-sm: 0.4rem;
-	--space-md: 0.6rem;
-	--space-lg: 0.8rem;
-	--space-xl: 1rem;
-	--space-2xl: 1.6rem;
-	--space-3xl: 2.4rem;
+	--space-vsm: 0.25rem;
+	--space-sm: 0.325rem;
+	--space-md: 0.5rem;
+	--space-lg: 0.825rem;
+	--space-xl: 1.25rem;
+	--space-2xl: 1.75rem;
+	--space-3xl: 2.5rem;
 
 	/* FONT FAMILYS */
 
@@ -91,8 +92,8 @@ button {
 
 	--rounded-sm: 0.25rem;
 	--rounded-md: 0.5rem;
-	--rounded-lg: 2rem;
-	--rounded-full: 50%;
+	--rounded-lg: 1rem;
+	--rounded-full: 9999px;
 
 	/* SHADOWS */
 

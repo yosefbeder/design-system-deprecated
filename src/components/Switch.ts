@@ -5,13 +5,13 @@ const Switch = styled.input.attrs(() => ({
 }))`
 	--width: 2.25rem;
 	--height: calc(var(--width) / 2);
-	--padding: 0.25rem;
+	--padding: var(--space-vsm);
 
 	position: relative;
 
 	width: var(--width);
 	height: var(--height);
-	border-radius: calc(var(--height) / 2);
+	border-radius: var(--rounded-full);
 	background-color: var(--color-gray-200);
 	border: 1px solid var(--color-gray-200);
 	transition: background-color 100ms, border-color 100ms;
@@ -57,25 +57,20 @@ const Switch = styled.input.attrs(() => ({
 		position: absolute;
 		content: '';
 		top: 50%;
+		left: var(--padding);
 
-		width: calc(var(--width) / 2 - var(--padding) * 2);
+		width: calc(var(--height) - var(--padding) * 2);
 		height: calc(var(--height) - var(--padding) * 2);
-		border-radius: 50%;
+		border-radius: var(--rounded-full);
 		background-color: var(--color-white);
 
-		transform: translate(var(--padding), -50%);
+		transform: translate(0, -50%);
 
 		transition: transform 100ms ease-out;
 	}
 
 	&:checked::before {
-		transform: translate(
-			calc(
-				var(--width) - calc(var(--width) / 2 - var(--padding) * 2) -
-					var(--padding)
-			),
-			-50%
-		);
+		transform: translate(calc(var(--width) - 100% - var(--padding) * 2), -50%);
 	}
 
 	&:disabled::before {

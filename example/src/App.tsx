@@ -329,7 +329,13 @@ function App() {
 					content="Is Next.js even a standalone framework?"
 					position="left"
 				>
-					<Radio name="favorite-framework" value="next" id="next" disabled />
+					<Radio
+						name="favorite-framework"
+						value="next"
+						id="next"
+						disabled
+						defaultChecked
+					/>
 				</Tooltip>
 				<P1 as="label" htmlFor="next">
 					Next.js
