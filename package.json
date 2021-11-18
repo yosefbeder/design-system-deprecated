@@ -1,59 +1,79 @@
 {
-  "version": "0.1.0",
-  "license": "MIT",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "src"
-  ],
-  "engines": {
-    "node": ">=10"
-  },
-  "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why"
-  },
-  "peerDependencies": {
-    "react": ">=16",
-    "react-icons": "^4.3.1",
-    "styled-components": "^5.3.3"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
-  "name": "react-components",
-  "author": "yosefbeder",
-  "module": "dist/react-components.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/react-components.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/react-components.esm.js",
-      "limit": "10 KB"
-    }
-  ],
-  "devDependencies": {
-    "@size-limit/preset-small-lib": "^6.0.4",
-    "@types/react": "^17.0.34",
-    "@types/react-dom": "^17.0.11",
-    "@types/react-icons": "^3.0.0",
-    "@types/styled-components": "^5.1.15",
-    "husky": "^7.0.4",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "size-limit": "^6.0.4",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.3.1",
-    "typescript": "^4.4.4"
-  }
+	"name": "@yosefbeder/design-system",
+	"version": "0.0.0",
+	"author": "yosefbeder",
+	"license": "MIT",
+	"files": [
+		"dist"
+	],
+	"engines": {
+		"node": ">=10"
+	},
+	"scripts": {
+		"start": "tsc -w",
+		"copy-files:cjs": "copyfiles -u 1 src/**/*.css dist/cjs",
+		"copy-files:esm": "copyfiles -u 1 src/**/*.css dist/esm",
+		"build:cjs": "tsc --module commonjs --outDir ./dist/cjs && yarn copy-files:cjs",
+		"build:esm": "tsc && yarn copy-files:esm",
+		"build": "yarn build:cjs && yarn build:esm",
+		"size": "size-limit",
+		"analyze": "size-limit --why"
+	},
+	"peerDependencies": {
+		"react": ">=16",
+		"react-icons": "^4.3.1",
+		"styled-components": "^5.3.3"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "tsdx lint"
+		}
+	},
+	"size-limit": [
+		{
+			"path": "dist/react-components.cjs.production.min.js",
+			"limit": "10 KB"
+		},
+		{
+			"path": "dist/react-components.esm.js",
+			"limit": "10 KB"
+		}
+	],
+	"devDependencies": {
+		"@size-limit/preset-small-lib": "^6.0.4",
+		"@types/react": "^17.0.34",
+		"@types/react-dom": "^17.0.11",
+		"@types/react-icons": "^3.0.0",
+		"@types/styled-components": "^5.1.15",
+		"copyfiles": "^2.4.1",
+		"husky": "^7.0.4",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"size-limit": "^6.0.4",
+		"tslib": "^2.3.1",
+		"typescript": "^4.5.2"
+	},
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org"
+	},
+	"exports": {
+		"./index.css": "./dist/cjs/index.css",
+		"./typography": "./dist/cjs/typography.js",
+		"./components": "./dist/cjs/components",
+		"./components/Button": "./dist/cjs/components/Button.d.ts"
+	},
+	"typesVersions": {
+		"*": {
+			"typography": [
+				"./dist/cjs/typography.d.ts"
+			],
+			"components": [
+				"./dist/cjs/components/index.d.ts"
+			],
+			"components/Button": [
+				"./dist/cjs/components/index.d.ts"
+			]
+		}
+	}
 }
