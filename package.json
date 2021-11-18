@@ -2,10 +2,15 @@
 	"name": "@yosefbeder/design-system",
 	"version": "0.1.0",
 	"author": "yosefbeder",
+	"homepage": "https://yosefbeder.github.io/design-system/",
 	"license": "MIT",
 	"files": [
 		"dist"
 	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/yosefbeder/design-system.git"
+	},
 	"engines": {
 		"node": ">=10"
 	},
