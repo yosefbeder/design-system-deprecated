@@ -67,8 +67,8 @@
 	"exports": {
 		"./index.css": "./dist/cjs/index.css",
 		"./typography": "./dist/cjs/typography.js",
-		"./components": "./dist/cjs/components",
-		"./components/Button": "./dist/cjs/components/Button.d.ts"
+		"./components": "./dist/cjs/components/index.js",
+		"./components/Button": "./dist/cjs/components/Button.js"
 	},
 	"typesVersions": {
 		"*": {
@@ -79,7 +79,7 @@
 				"./dist/cjs/components/index.d.ts"
 			],
 			"components/Button": [
-				"./dist/cjs/components/index.d.ts"
+				"./dist/cjs/components/Button.d.ts"
 			]
 		}
 	}
