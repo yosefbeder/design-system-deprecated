@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import React from 'react';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import '../../src/index.css';
 import {
@@ -79,10 +80,15 @@ const CheckboxGroup = styled(SwitchGroup)``;
 
 const RadioGroup = styled(SwitchGroup)``;
 
-const pages = ['Home', 'Work', 'Blog', 'About'];
+const pages = [
+	{ path: '/', name: 'Home' },
+	{ path: '/work', name: 'Work' },
+	{ path: '/blog', name: 'Blog' },
+	{ path: '/about', name: 'About' },
+];
 
 function App() {
-	const [navigated, setNavigated] = useState('Home');
+	const location = useLocation();
 
 	return (
 		<Article>
@@ -177,14 +183,12 @@ function App() {
 			</ButtonsGroup>
 			<H2WithId>Nav Link</H2WithId>
 			<ButtonsGroup>
-				{pages.map((page, index) => (
-					<NavLink
-						key={index}
-						isNavigatedTo={page === navigated}
-						onNavigate={() => setNavigated(page)}
-					>
-						{page}
-					</NavLink>
+				{pages.map(page => (
+					<RouterLink key={page.path} to={page.path}>
+						<NavLink isNavigatedTo={location.pathname === page.path}>
+							{page.name}
+						</NavLink>
+					</RouterLink>
 				))}
 			</ButtonsGroup>
 			<H2WithId>Icon Button</H2WithId>
