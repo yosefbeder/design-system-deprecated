@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled, { css, StyledComponentProps } from 'styled-components';
 import LoadingSpinner from './LoadingSpinner';
 
 interface StyledButtonProps {
@@ -164,26 +164,15 @@ export const TertiaryLoadingSpinner = styled(LoadingSpinner)`
 
 type ButtonVariant = 'primary' | 'secondary' | 'tertiary';
 
-type ButtonState = 'normal' | 'loading' | 'disabled';
-
-const getStyledButtonProps = (state: ButtonState) => {
-	return { disabled: state === 'disabled', loading: state === 'loading' };
-};
-
 interface ButtonProps {
 	variant?: ButtonVariant;
-	state?: ButtonState;
 	leftIcon?: React.ReactNode;
 	rightIcon?: React.ReactNode;
 }
 
-const Button: React.FC<ButtonProps> = ({
-	variant = 'primary',
-	state = 'normal',
-	children,
-	leftIcon,
-	rightIcon,
-}) => {
+const Button: React.FC<
+	ButtonProps & StyledComponentProps<'button', any, StyledButtonProps, never>
+> = ({ variant = 'primary', children, leftIcon, rightIcon, ...restProps }) => {
 	const StyledButton =
 		variant === 'primary'
 			? StyledButtonPrimary
@@ -201,7 +190,7 @@ const Button: React.FC<ButtonProps> = ({
 		`;
 
 		return (
-			<StyledButtonWithLeftIcon {...getStyledButtonProps(state)}>
+			<StyledButtonWithLeftIcon {...restProps}>
 				{leftIcon} {children}
 			</StyledButtonWithLeftIcon>
 		);
@@ -217,15 +206,13 @@ const Button: React.FC<ButtonProps> = ({
 		`;
 
 		return (
-			<StyledButtonWithLeftIcon {...getStyledButtonProps(state)}>
+			<StyledButtonWithLeftIcon {...restProps}>
 				{children} {rightIcon}
 			</StyledButtonWithLeftIcon>
 		);
 	}
 
-	return (
-		<StyledButton {...getStyledButtonProps(state)}>{children}</StyledButton>
-	);
+	return <StyledButton {...restProps}>{children}</StyledButton>;
 };
 
 export default Button;
