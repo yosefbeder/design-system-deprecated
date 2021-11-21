@@ -68,7 +68,8 @@
 		"./index.css": "./dist/cjs/index.css",
 		"./typography": "./dist/cjs/typography.js",
 		"./components": "./dist/cjs/components/index.js",
-		"./components/Button": "./dist/cjs/components/Button.js"
+		"./components/Button": "./dist/cjs/components/Button.js",
+		"./utils": "./dist/cjs/utils/index.js"
 	},
 	"typesVersions": {
 		"*": {
@@ -80,6 +81,9 @@
 			],
 			"components/Button": [
 				"./dist/cjs/components/Button.d.ts"
+			],
+			"utils": [
+				"./dist/cjs/utils/index.d.ts"
 			]
 		}
 	}
