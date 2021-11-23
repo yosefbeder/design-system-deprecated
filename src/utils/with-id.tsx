@@ -11,8 +11,8 @@ const convertToSlug = (text: string) =>
 const HLink = styled.a<{ isShown: boolean }>`
 	position: absolute;
 
-	width: calc(100% + 1em);
-	margin-left: -1em;
+	width: calc(100% + 0.75em);
+	margin-left: -0.75em;
 
 	opacity: ${props => (props.isShown ? '1' : '0')};
 	cursor: pointer;
@@ -40,7 +40,7 @@ const withId = (H: StyledComponent<any, any, {}, never>) => {
 				onMouseLeave={() => setIsMouseIn(false)}
 			>
 				<HLink isShown={isMouseIn} href={`#${slug}`}>
-					<LinkIcon size=".75em" />
+					<LinkIcon size=".65em" />
 				</HLink>
 				{children}
 			</RelativeH>

@@ -148,22 +148,22 @@ function App() {
 			<H3WithId>Primary Button</H3WithId>
 			<ButtonsGroup>
 				<Button>Normal</Button>
-				<Button state="loading" leftIcon={<PrimaryLoadingSpinner />}>
+				<Button loading leftIcon={<PrimaryLoadingSpinner />}>
 					Loading
 				</Button>
-				<Button state="disabled">Disabled</Button>
+				<Button disabled>Disabled</Button>
 			</ButtonsGroup>
 			<H3WithId>Secondary Button</H3WithId>
 			<ButtonsGroup>
 				<Button variant="secondary">Normal</Button>
 				<Button
 					variant="secondary"
-					state="loading"
+					loading
 					leftIcon={<SecondaryLoadingSpinner />}
 				>
 					Loading
 				</Button>
-				<Button variant="secondary" state="disabled">
+				<Button variant="secondary" disabled>
 					Disabled
 				</Button>
 			</ButtonsGroup>
@@ -172,12 +172,12 @@ function App() {
 				<Button variant="tertiary">Normal</Button>
 				<Button
 					variant="tertiary"
-					state="loading"
+					loading
 					leftIcon={<TertiaryLoadingSpinner />}
 				>
 					Loading
 				</Button>
-				<Button variant="tertiary" state="disabled">
+				<Button variant="tertiary" disabled>
 					Disabled
 				</Button>
 			</ButtonsGroup>
