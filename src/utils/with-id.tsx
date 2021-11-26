@@ -3,7 +3,7 @@ import styled, { StyledComponent } from 'styled-components';
 import { HiLink as LinkIcon } from 'react-icons/hi';
 
 export const convertToSlug = (text: string) =>
-	text
+	String(text)
 		.toLowerCase()
 		.replace(/ /g, '-')
 		.replace(/[^\w-]+/g, '');
