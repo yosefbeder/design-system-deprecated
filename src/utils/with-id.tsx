@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled, { StyledComponent } from 'styled-components';
 import { HiLink as LinkIcon } from 'react-icons/hi';
 
-const convertToSlug = (text: string) =>
+export const convertToSlug = (text: string) =>
 	text
 		.toLowerCase()
 		.replace(/ /g, '-')

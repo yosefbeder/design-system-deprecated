@@ -69,7 +69,8 @@
 		"./typography": "./dist/cjs/typography.js",
 		"./components": "./dist/cjs/components/index.js",
 		"./components/Button": "./dist/cjs/components/Button.js",
-		"./utils": "./dist/cjs/utils/index.js"
+		"./utils": "./dist/cjs/utils/index.js",
+		"./utils/with-id": "./dist/cjs/utils/with-id.js"
 	},
 	"typesVersions": {
 		"*": {
@@ -84,6 +85,9 @@
 			],
 			"utils": [
 				"./dist/cjs/utils/index.d.ts"
+			],
+			"utils/with-id": [
+				"./dist/cjs/utils/with-id.d.ts"
 			]
 		}
 	}
