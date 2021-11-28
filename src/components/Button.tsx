@@ -207,7 +207,7 @@ const Button: React.FC<
 				: TertiaryLoadingSpinner;
 
 		return (
-			<StyledButton {...restProps}>
+			<StyledButton loading {...restProps}>
 				<LoadingSpinner />
 				<TextContainer leftSpacing={true} rightSpacing={!!rightIcon}>
 					{children}
