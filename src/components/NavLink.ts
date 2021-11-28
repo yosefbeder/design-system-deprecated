@@ -5,6 +5,7 @@ interface NavLinkProps {
 }
 
 const NavLink = styled.a<NavLinkProps>`
+	display: inline-block;
 	padding: var(--space-sm) var(--space-md);
 	border: 2px solid transparent;
 	border-radius: var(--rounded-sm);
