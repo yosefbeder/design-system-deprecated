@@ -43,16 +43,6 @@ export const H6 = styled.h6`
 	font-size: var(--font-sm);
 `;
 
-export const Ul = styled.ul`
-	list-style-type: unset;
-	margin: var(--space-md) 0 var(--space-md) var(--space-xl);
-`;
-
-export const Ol = styled.ol`
-	list-style-type: decimal;
-	margin: var(--space-md) 0 var(--space-md) var(--space-xl);
-`;
-
 const PSharedStyles = css`
 	margin: var(--space-md) 0;
 	line-height: 1.35;
@@ -70,8 +60,26 @@ export const P2 = styled.p`
 	color: var(--color-gray-600);
 `;
 
+const LSharedStyles = css`
+	margin: var(--space-md) 0 var(--space-md) var(--space-xl);
+	line-height: 1.5;
+
+	& ${P1}, & ${P2} {
+		margin: 0;
+	}
+`;
+
+export const Ul = styled.ul`
+	${LSharedStyles}
+`;
+
+export const Ol = styled.ol`
+	${LSharedStyles}
+`;
+
 export const Link = styled.a`
 	color: var(--color-blue-400);
+	text-decoration: underline;
 	transition: color 100ms;
 
 	&:hover {

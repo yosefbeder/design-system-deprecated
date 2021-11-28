@@ -38,6 +38,7 @@ import {
 	HiArrowLeft as ArrowLeft,
 	HiArrowRight as ArrowRight,
 } from 'react-icons/hi';
+import { HiCreditCard } from 'react-icons/hi';
 
 const H2WithId = withId(H2);
 const H3WithId = withId(H3);
@@ -117,25 +118,61 @@ function App() {
 				<Italic>constants</Italic> in javascript:
 			</P1>
 			<Ul>
-				<P1 as="li">
+				<li>
 					<InlineCode>let</InlineCode>: a variable that can be changed later and{' '}
-					<Strong>block-scoped</Strong>.
-				</P1>
-				<P1 as="li">
+					<Strong>function-scoped</Strong>.
+				</li>
+				<li>
 					<InlineCode>const</InlineCode>: a constant that can't be changed later
-					and <Strong>block-scoped</Strong>.
-				</P1>
-				<P1 as="li">
-					<InlineCode>var</InlineCode>: a variable that can't be changed later
 					and <Strong>function-scoped</Strong>.
-				</P1>
+				</li>
+				<li>
+					<P1>
+						<InlineCode>var</InlineCode>: a variable that can't be changed later
+						and <Strong>block-scoped</Strong>.
+					</P1>
+					<Ul>
+						<li>
+							<P1>Why shouldn't you use it?</P1>
+							<Ol>
+								<li>
+									You'll face some strange behavior due to being{' '}
+									<Strong>block-scoped</Strong>
+								</li>
+								<li>It's awful.</li>
+								<li>It's the worst.</li>
+							</Ol>
+						</li>
+					</Ul>
+					<Ul>
+						<li>
+							<P1>What should you use instead?</P1>
+							<Ul>
+								<li>
+									<InlineCode>var</InlineCode> for variables (
+									<Link href="https://www.merriam-webster.com/dictionary/mutable">
+										mutable
+									</Link>
+									).
+								</li>
+								<li>
+									<InlineCode>const</InlineCode> for constants (
+									<Link href="https://www.merriam-webster.com/dictionary/immutable">
+										immutable
+									</Link>
+									).
+								</li>
+							</Ul>
+						</li>
+					</Ul>
+				</li>
 			</Ul>
 			<P1>
 				Steps to declare <Italic>them</Italic>:
 			</P1>
 			<Ol>
-				<P1 as="li">Think of the the name of it.</P1>
-				<P1 as="li">Think whether it will change or not.</P1>
+				<li>Think of the the name of it.</li>
+				<li>Think whether it will change or not.</li>
 			</Ol>
 			<H3WithId>Blockquote</H3WithId>
 			<Blockquote>
@@ -147,37 +184,51 @@ function App() {
 			<H2WithId>Buttons</H2WithId>
 			<H3WithId>Primary Button</H3WithId>
 			<ButtonsGroup>
-				<Button>Normal</Button>
-				<Button loading leftIcon={<PrimaryLoadingSpinner />}>
+				<Button leftIcon={<HiCreditCard size={20} />}>Normal</Button>
+				<Button leftIcon={<HiCreditCard size={20} />} loading>
 					Loading
 				</Button>
-				<Button disabled>Disabled</Button>
+				<Button leftIcon={<HiCreditCard size={20} />} disabled>
+					Disabled
+				</Button>
 			</ButtonsGroup>
 			<H3WithId>Secondary Button</H3WithId>
 			<ButtonsGroup>
-				<Button variant="secondary">Normal</Button>
+				<Button leftIcon={<HiCreditCard size={20} />} variant="secondary">
+					Normal
+				</Button>
 				<Button
+					leftIcon={<HiCreditCard size={20} />}
 					variant="secondary"
 					loading
-					leftIcon={<SecondaryLoadingSpinner />}
 				>
 					Loading
 				</Button>
-				<Button variant="secondary" disabled>
+				<Button
+					leftIcon={<HiCreditCard size={20} />}
+					variant="secondary"
+					disabled
+				>
 					Disabled
 				</Button>
 			</ButtonsGroup>
 			<H3WithId>Tertiary Button</H3WithId>
 			<ButtonsGroup>
-				<Button variant="tertiary">Normal</Button>
+				<Button leftIcon={<HiCreditCard size={20} />} variant="tertiary">
+					Normal
+				</Button>
 				<Button
+					leftIcon={<HiCreditCard size={20} />}
 					variant="tertiary"
 					loading
-					leftIcon={<TertiaryLoadingSpinner />}
 				>
 					Loading
 				</Button>
-				<Button variant="tertiary" disabled>
+				<Button
+					leftIcon={<HiCreditCard size={20} />}
+					variant="tertiary"
+					disabled
+				>
 					Disabled
 				</Button>
 			</ButtonsGroup>

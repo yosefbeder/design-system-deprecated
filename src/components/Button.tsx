@@ -7,6 +7,7 @@ interface StyledButtonProps {
 }
 
 const ButtonSharedStyles = css`
+	display: flex;
 	padding: var(--space-sm) var(--space-md);
 	border-radius: var(--rounded-sm);
 	user-select: none;
@@ -170,9 +171,26 @@ interface ButtonProps {
 	rightIcon?: React.ReactNode;
 }
 
+interface TextContainerProps {
+	leftSpacing?: boolean;
+	rightSpacing?: boolean;
+}
+
+const TextContainer = styled.span<TextContainerProps>`
+	margin-left: ${props => (props.leftSpacing ? 'var(--space-md)' : '0')};
+	margin-right: ${props => (props.rightSpacing ? 'var(--space-md)' : '0')};
+`;
+
 const Button: React.FC<
 	ButtonProps & StyledComponentProps<'button', any, StyledButtonProps, never>
-> = ({ variant = 'primary', children, leftIcon, rightIcon, ...restProps }) => {
+> = ({
+	variant = 'primary',
+	children,
+	leftIcon,
+	rightIcon,
+	loading,
+	...restProps
+}) => {
 	const StyledButton =
 		variant === 'primary'
 			? StyledButtonPrimary
@@ -180,39 +198,34 @@ const Button: React.FC<
 			? StyledButtonSecondary
 			: StyledButtonTertiary;
 
-	if (leftIcon) {
-		const StyledButtonWithLeftIcon = styled(StyledButton)`
-			display: flex;
-
-			& > *:first-child {
-				margin-right: var(--space-md);
-			}
-		`;
+	if (loading) {
+		const LoadingSpinner =
+			variant === 'primary'
+				? PrimaryLoadingSpinner
+				: variant === 'secondary'
+				? SecondaryLoadingSpinner
+				: TertiaryLoadingSpinner;
 
 		return (
-			<StyledButtonWithLeftIcon {...restProps}>
-				{leftIcon} {children}
-			</StyledButtonWithLeftIcon>
+			<StyledButton {...restProps}>
+				<LoadingSpinner />
+				<TextContainer leftSpacing={true} rightSpacing={!!rightIcon}>
+					{children}
+				</TextContainer>
+				{rightIcon && rightIcon}
+			</StyledButton>
 		);
 	}
 
-	if (rightIcon) {
-		const StyledButtonWithLeftIcon = styled(StyledButton)`
-			display: flex;
-
-			& > *:last-child {
-				margin-left: var(--space-md);
-			}
-		`;
-
-		return (
-			<StyledButtonWithLeftIcon {...restProps}>
-				{children} {rightIcon}
-			</StyledButtonWithLeftIcon>
-		);
-	}
-
-	return <StyledButton {...restProps}>{children}</StyledButton>;
+	return (
+		<StyledButton {...restProps}>
+			{leftIcon && leftIcon}
+			<TextContainer leftSpacing={!!leftIcon} rightSpacing={!!rightIcon}>
+				{children}
+			</TextContainer>
+			{rightIcon && rightIcon}
+		</StyledButton>
+	);
 };
 
 export default Button;
