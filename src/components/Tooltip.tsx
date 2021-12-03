@@ -4,6 +4,7 @@ import { P2 } from '../typography';
 
 const Container = styled.div`
 	position: relative;
+	display: inline-block;
 	cursor: pointer;
 `;
 
